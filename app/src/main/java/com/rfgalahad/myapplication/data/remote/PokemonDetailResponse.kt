@@ -1,6 +1,6 @@
 package com.rfgalahad.myapplication.data.remote
 
-data class PokemonDetail(
+data class PokemonDetailResponse(
     val name: String,
     val abilities: List<AbilityItem>
 )
