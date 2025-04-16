@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
             viewModel.login(email, password).observe(viewLifecycleOwner) { user ->
                 if (user != null) {
                     Toast.makeText(context, "Login successful!", Toast.LENGTH_SHORT).show()
-                    //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 } else {
                     Toast.makeText(context, "Invalid credentials", Toast.LENGTH_SHORT).show()
                 }
