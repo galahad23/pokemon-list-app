@@ -8,7 +8,5 @@ data class UserModel (
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val username: String,
     val email: String,
-    val password: String,
-    val firstname: String,
-    val lastName: String
+    val password: String
 )

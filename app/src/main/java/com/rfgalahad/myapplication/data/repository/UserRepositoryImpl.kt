@@ -5,8 +5,14 @@ import com.rfgalahad.myapplication.data.local.UserModel
 import com.rfgalahad.myapplication.domain.repository.UserRepository
 
 class UserRepositoryImpl(private val userDao: UserDao): UserRepository {
-    override suspend fun registerUser(user: UserModel) {
-        userDao.insertUser(user)
+    override suspend fun registerUser(user: UserModel): Boolean {
+        val existingUser = userDao.getUserByEmail(user.email)
+        return if (existingUser == null) {
+            userDao.insertUser(user)
+            true
+        } else {
+            false
+        }
     }
 
     override suspend fun loginUser(email: String, password: String): UserModel? {

@@ -48,6 +48,6 @@
 
     <fragment
         android:id="@+id/pokemonDetailFragment"
-        android:name="com.rfgalahad.myapplication.presentation.pokemon_detail.PokemonDetailFragment"
+        android:name="com.rfgalahad.myapplication.presentation.details.PokemonDetailsFragment"
         android:label="Details" />
 </navigation>
