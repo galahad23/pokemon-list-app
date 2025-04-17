@@ -1,5 +1,6 @@
 package com.rfgalahad.myapplication.data.remote
 
+import com.rfgalahad.myapplication.domain.model.PokemonListItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

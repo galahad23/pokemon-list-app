@@ -24,7 +24,7 @@ class PokemonRepositoryImpl(
         val detail = apiService.getPokemonDetail(name)
         return PokemonDetail(
             name = detail.name,
-            abilities = detail.abilities.map { it.abilityItem.name }
+            abilities = detail.abilities
         )
     }
 }

@@ -4,23 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
-
-        <TextView
-            android:id="@+id/tvProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="16sp"
-            android:padding="8dp" />
-    </LinearLayout>
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp">
 
     <EditText
         android:id="@+id/etSearch"
@@ -29,13 +16,24 @@
         android:hint="@string/search_pok_mon"
         android:padding="12dp"
         android:background="@android:drawable/edit_text"
-        android:inputType="text" />
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchDropdownRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="8dp"
+        android:background="@android:color/white"
+        android:maxHeight="300dp"
+        android:layout_marginTop="4dp"
+        android:padding="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPokemonList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingTop="8dp"
-        android:clipToPadding="false" />
+        android:paddingTop="8dp"/>
 </LinearLayout>
