@@ -12,6 +12,7 @@ import com.rfgalahad.myapplication.R
 import com.rfgalahad.myapplication.data.repository.UserRepositoryProvider
 import com.rfgalahad.myapplication.databinding.FragmentLoginBinding
 import com.rfgalahad.myapplication.presentation.common.BaseViewModelFactory
+import com.rfgalahad.myapplication.presentation.common.UserSessionManager
 
 class LoginFragment : Fragment() {
 
@@ -41,6 +42,8 @@ class LoginFragment : Fragment() {
 
             viewModel.login(email, password).observe(viewLifecycleOwner) { user ->
                 if (user != null) {
+                    val sessionManager = UserSessionManager(requireContext())
+                    sessionManager.saveUserEmail(user.email)
                     Toast.makeText(context, "Login successful!", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 } else {

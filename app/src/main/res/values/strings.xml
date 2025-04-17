@@ -8,6 +8,7 @@
     <string name="name">Name</string>
     <string name="pokemon_name">Pokemon Name</string>
     <string name="profile">Profile</string>
-    <string name="search_pok_mon">Search Pokémon...</string>
+    <string name="search_pok_mon">Search Pokémon…</string>
     <string name="home">Home</string>
+    <string name="logout">Logout</string>
 </resources>

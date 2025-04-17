@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rfgalahad.myapplication.R
-import com.rfgalahad.myapplication.data.remote.PokemonApiService
 import com.rfgalahad.myapplication.data.remote.RetrofitInstance
 import com.rfgalahad.myapplication.data.repository.PokemonRepositoryImpl
 import com.rfgalahad.myapplication.databinding.FragmentHomeBinding
@@ -34,13 +31,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ViewModel setup
         val repository = PokemonRepositoryImpl(RetrofitInstance.api)
         val factory = BaseViewModelFactory { HomeViewModel(repository) }
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
         adapter = PokemonListAdapter {
-            // handle item click: navigate to detail fragment
         }
         binding.rvPokemonList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvPokemonList.adapter = adapter
@@ -55,12 +50,11 @@ class HomeFragment : Fragment() {
 //            viewModel.searchPokemon(query)
 //        }
 
-        // Navigate to Profile
         binding.tvProfile.setOnClickListener {
             //findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
 
-        // Initial fetch
+        //viewModel.resetPagination()
         viewModel.loadNextPage()
     }
 
