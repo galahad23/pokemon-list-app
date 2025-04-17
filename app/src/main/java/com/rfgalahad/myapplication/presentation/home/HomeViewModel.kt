@@ -20,9 +20,6 @@ class HomeViewModel(
     private val _searchResult = MutableLiveData<List<PokemonDetail>>()
     val searchResult: LiveData<List<PokemonDetail>> = _searchResult
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
-
     private var currentPage = 1
 
     fun searchPokemonByName(query: String) {
@@ -59,9 +56,5 @@ class HomeViewModel(
         currentPage = 1
         _pokemonList.value = emptyList()
         loadNextPage()
-    }
-
-    fun clearSearch() {
-        _searchResult.value = emptyList()
     }
 }

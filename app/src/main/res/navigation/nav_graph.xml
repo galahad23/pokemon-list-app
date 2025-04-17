@@ -49,5 +49,9 @@
     <fragment
         android:id="@+id/pokemonDetailFragment"
         android:name="com.rfgalahad.myapplication.presentation.details.PokemonDetailsFragment"
-        android:label="Details" />
+        android:label="Details" >
+    <argument
+        android:name="pokemonName"
+        app:argType="string" />
+    </fragment>
 </navigation>

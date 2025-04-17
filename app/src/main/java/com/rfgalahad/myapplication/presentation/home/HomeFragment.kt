@@ -1,7 +1,6 @@
 package com.rfgalahad.myapplication.presentation.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.core.widget.addTextChangedListener
 import com.rfgalahad.myapplication.data.remote.RetrofitInstance
 import com.rfgalahad.myapplication.data.repository.PokemonRepositoryImpl
 import com.rfgalahad.myapplication.databinding.FragmentHomeBinding
@@ -41,7 +40,10 @@ class HomeFragment : Fragment() {
         val factory = BaseViewModelFactory { HomeViewModel(repository) }
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
-        mainAdapter = PokemonListAdapter {
+        mainAdapter = PokemonListAdapter { pokemon ->
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToPokemonDetailFragment(pokemon.name)
+            findNavController().navigate(action)
         }
 
         binding.rvPokemonList.apply {
@@ -80,6 +82,9 @@ class HomeFragment : Fragment() {
         }
 
         dropdownAdapter = PokemonSearchAdapter { result ->
+            val action = HomeFragmentDirections
+                .actionHomeFragmentToPokemonDetailFragment(result.name)
+            findNavController().navigate(action)
             binding.searchDropdownRecycler.visibility = View.GONE
         }
 

@@ -11,4 +11,5 @@
     <string name="search_pok_mon">Search Pokémon…</string>
     <string name="home">Home</string>
     <string name="logout">Logout</string>
+    <string name="abilities_will_show_here">Abilities will show here</string>
 </resources>
